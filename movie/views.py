@@ -14,8 +14,4 @@ def about(request):
 
 def movie(request):
     searchTerm = request.GET.get('searchMovie')
-    if searchTerm:
-        movie = Movie.objects.filter(title__icontains=searchTerm)
-    else:
-        movie = Movie.objects.all()
     return render(request, 'Movie.html', {'searchTerm': searchTerm, 'movies': movie})
